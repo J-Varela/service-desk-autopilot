@@ -30,6 +30,10 @@ The system uses a multi-agent orchestration pattern where specialized agents han
 
 ```
 service-desk-autopilot/
+├── frontend/                # Web UI dashboard
+│   ├── index.html          # Main HTML interface
+│   ├── script.js           # Frontend logic
+│   └── styles.css          # UI styling
 ├── backend/
 │   ├── agents/              # Specialized AI agents
 │   ├── config/              # Configuration and settings
@@ -108,13 +112,59 @@ The system integrates with various enterprise services:
 
 ## 💻 Usage
 
+### Web UI Dashboard
+
+The easiest way to interact with Service Desk Autopilot is through the web interface:
+
+1. **Start the backend server**
+   ```powershell
+   .\serviceEnv\Scripts\Activate.ps1
+   uvicorn backend.orchestrator.main:app --reload
+   ```
+
+2. **Open the web UI**
+   - Navigate to `frontend/index.html` in your browser
+   - Or visit `http://localhost:8000/docs` for API documentation
+
+3. **Start chatting**
+   - Enter your user ID (e.g., `jv-123`)
+   - Type your request in natural language
+   - Watch the agent pipeline execute in real-time
+
+**Features:**
+- 💬 Interactive chat interface
+- 📊 Real-time agent activity visualization
+- 🔍 Live execution logs
+- ✅ Connection status monitoring
+
+### CLI Client
+
+For command-line usage:
+
+```powershell
+python cli_client.py
+```
+
 ### API Endpoints
 
-The orchestrator exposes REST API endpoints for:
-- Submitting support requests
-- Checking task status
-- Retrieving execution history
-- Managing agent configuration
+The orchestrator exposes REST API endpoints:
+
+**POST** `/chat` - Submit a support request
+```json
+{
+  "user_id": "jv-123",
+  "message": "I need to reset my password"
+}
+```
+
+**GET** `/health` - Check API status
+```json
+{
+  "status": "ok",
+  "environment": "development",
+  "azure_configured": true
+}
+```
 
 ### Example Request
 
@@ -122,13 +172,15 @@ The orchestrator exposes REST API endpoints for:
 import requests
 
 response = requests.post(
-    "http://localhost:8000/api/request",
+    "http://localhost:8000/chat",
     json={
-        "user_id": "user@example.com",
-        "message": "I need to reset my password",
-        "priority": "normal"
+        "user_id": "jv-123",
+        "message": "I need to reset my password"
     }
 )
+
+print(response.json()['reply'])
+print(response.json()['activity_log'])
 ```
 
 ## 🧪 Testing
@@ -217,7 +269,7 @@ For questions or issues:
 
 - [ ] Enhanced natural language understanding
 - [ ] Additional runbook templates
-- [ ] Web-based dashboard
+- [x] Web-based dashboard ✨
 - [ ] Integration with more ticketing systems
 - [ ] Advanced analytics and reporting
 - [ ] Multi-language support

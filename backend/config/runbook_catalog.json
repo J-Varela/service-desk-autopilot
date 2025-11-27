@@ -1,0 +1,18 @@
+{
+  "check_account_status": {
+    "risk_level": "low",
+    "domain": "it",
+    "requires_explicit_confirmation": false
+  },
+  "reset_password": {
+    "risk_level": "medium",
+    "domain": "it",
+    "requires_explicit_confirmation": true,
+    "max_daily_executions_per_user": 3
+  },
+  "lookup_pto_balance": {
+    "risk_level": "low",
+    "domain": "hr",
+    "requires_explicit_confirmation": false
+  }
+}

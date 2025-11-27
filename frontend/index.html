@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Desk Autopilot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 Service Desk Autopilot</h1>
+            <p class="subtitle">AI-Powered Multi-Agent Service Desk</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Chat Section -->
+            <div class="chat-section">
+                <div class="chat-header">
+                    <h2>Chat</h2>
+                    <div class="status-indicator">
+                        <span class="status-dot" id="statusDot"></span>
+                        <span id="statusText">Connecting...</span>
+                    </div>
+                </div>
+
+                <div class="user-id-section">
+                    <label for="userId">User ID:</label>
+                    <input type="text" id="userId" placeholder="e.g., jv-123" value="jv-123">
+                </div>
+
+                <div class="chat-messages" id="chatMessages">
+                    <div class="welcome-message">
+                        <p>👋 Welcome! Ask me anything about:</p>
+                        <ul>
+                            <li>Password resets</li>
+                            <li>Account status checks</li>
+                            <li>PTO balance inquiries</li>
+                            <li>HR policy questions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <input 
+                        type="text" 
+                        id="messageInput" 
+                        placeholder="Type your message here..." 
+                        autocomplete="off"
+                    >
+                    <button id="sendButton">Send</button>
+                </div>
+            </div>
+
+            <!-- Activity Log Section -->
+            <div class="activity-section">
+                <div class="activity-header">
+                    <h2>Agent Activity Log</h2>
+                    <button id="clearLogButton" class="clear-button">Clear</button>
+                </div>
+                <div class="activity-log" id="activityLog">
+                    <div class="log-placeholder">
+                        Agent activities will appear here...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

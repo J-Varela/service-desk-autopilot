@@ -2,6 +2,10 @@
 
 An AI-powered service desk automation system that uses multi-agent architecture to intelligently handle IT support requests, automate common tasks, and streamline help desk operations.
 
+## 📊 Presentation
+
+**[View Project Presentation Slides](./docs/Presentation%20-%20Service-desk%20Autopilot%20AI%20%20.pdf)**
+
 ## 🌟 Overview
 
 Service Desk Autopilot is an intelligent automation platform designed to:
